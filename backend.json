@@ -56,13 +56,32 @@
       "type": "INPUT"
     },
     {
-      "assetId": "640b517694bf816d35a59125",
+      "assetId": "6646261c6eb563165658bbb1",
       "assetType": "MODEL",
       "autoSelectOptions": [],
       "fileMetadata": "{}",
       "function": "text-generation",
       "functionType": "AI",
-      "inputValues": [],
+      "inputValues": [
+        {
+          "code": "prompt"
+        },
+        {
+          "code": "context"
+        },
+        {
+          "code": "temperature",
+          "value": "0"
+        },
+        {
+          "code": "max_tokens",
+          "value": "10000"
+        },
+        {
+          "code": "history",
+          "value": ""
+        }
+      ],
       "label": "Model 2",
       "number": 1,
       "position": {
@@ -72,22 +91,25 @@
       "status": "Exists",
       "type": "ASSET",
       "model": {
+        "__typename": "Model",
         "assetType": "model",
         "benchmarkable": true,
         "connectionType": [],
-        "createdAt": "2023-04-26T18:24:54.668Z",
+        "createdAt": "2024-05-26T18:21:37.465Z",
         "description": null,
         "executionEndpoint": "https://models.aixplain.com/api/v1/execute",
         "function": "text-generation",
         "functionData": {
+          "__typename": "Function",
           "benchmarkable": true,
           "code": "text-generation",
           "input": [
             {
+              "__typename": "FunctionInput",
               "allowedRange": {
+                "__typename": "AllowedRange",
                 "from": null,
-                "to": null,
-                "__typename": "AllowedRange"
+                "to": null
               },
               "allowMulti": false,
               "allowMultipleConnections": false,
@@ -99,14 +121,14 @@
               "fixed": false,
               "name": "Text",
               "relatedFunction": null,
-              "required": true,
-              "__typename": "FunctionInput"
+              "required": true
             },
             {
+              "__typename": "FunctionInput",
               "allowedRange": {
+                "__typename": "AllowedRange",
                 "from": null,
-                "to": null,
-                "__typename": "AllowedRange"
+                "to": null
               },
               "allowMulti": false,
               "allowMultipleConnections": false,
@@ -118,14 +140,14 @@
               "fixed": false,
               "name": "Prompt",
               "relatedFunction": null,
-              "required": false,
-              "__typename": "FunctionInput"
+              "required": false
             },
             {
+              "__typename": "FunctionInput",
               "allowedRange": {
+                "__typename": "AllowedRange",
                 "from": null,
-                "to": null,
-                "__typename": "AllowedRange"
+                "to": null
               },
               "allowMulti": false,
               "allowMultipleConnections": false,
@@ -137,14 +159,14 @@
               "fixed": false,
               "name": "Context",
               "relatedFunction": null,
-              "required": false,
-              "__typename": "FunctionInput"
+              "required": false
             },
             {
+              "__typename": "FunctionInput",
               "allowedRange": {
+                "__typename": "AllowedRange",
                 "from": null,
-                "to": null,
-                "__typename": "AllowedRange"
+                "to": null
               },
               "allowMulti": false,
               "allowMultipleConnections": false,
@@ -156,14 +178,14 @@
               "fixed": true,
               "name": "Language",
               "relatedFunction": null,
-              "required": false,
-              "__typename": "FunctionInput"
+              "required": false
             },
             {
+              "__typename": "FunctionInput",
               "allowedRange": {
+                "__typename": "AllowedRange",
                 "from": null,
-                "to": null,
-                "__typename": "AllowedRange"
+                "to": null
               },
               "allowMulti": false,
               "allowMultipleConnections": false,
@@ -175,17 +197,16 @@
               "fixed": true,
               "name": "Script",
               "relatedFunction": null,
-              "required": false,
-              "__typename": "FunctionInput"
+              "required": false
             }
           ],
           "isDummy": null,
           "name": "Text Generation",
           "output": [
             {
+              "__typename": "FunctionOutput",
               "code": "data",
-              "dataType": "text",
-              "__typename": "FunctionOutput"
+              "dataType": "text"
             }
           ],
           "rules": [
@@ -193,21 +214,21 @@
             "isReferenceRequired"
           ],
           "status": "onboarded",
-          "type": "AI",
-          "__typename": "Function"
+          "type": "AI"
         },
         "hostedBy": "OpenAI",
-        "id": "640b517694bf816d35a59125",
+        "id": "6646261c6eb563165658bbb1",
         "in": "",
         "inDataTypes": [
           "text"
         ],
         "input": [
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": true,
             "allowMultipleConnections": false,
@@ -223,14 +244,14 @@
             "required": true,
             "supportedFileTypes": [],
             "supportsVariables": false,
-            "value": [],
-            "__typename": "ModelInput"
+            "value": []
           },
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": false,
             "allowMultipleConnections": false,
@@ -248,18 +269,18 @@
             "supportsVariables": false,
             "value": [
               {
+                "__typename": "DataValue",
                 "label": "Template",
-                "value": "[{\"role\": \"user\", \"content\": \"<data>\"}]",
-                "__typename": "DataValue"
+                "value": "[{\"role\": \"user\", \"content\": \"<data>\"}]"
               }
-            ],
-            "__typename": "ModelInput"
+            ]
           },
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": false,
             "allowMultipleConnections": false,
@@ -274,21 +295,21 @@
             "relatedFunction": null,
             "required": false,
             "supportedFileTypes": [],
-            "supportsVariables": true,
+            "supportsVariables": false,
             "value": [
               {
+                "__typename": "DataValue",
                 "label": "Prompt",
-                "value": " ",
-                "__typename": "DataValue"
+                "value": " "
               }
-            ],
-            "__typename": "ModelInput"
+            ]
           },
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": false,
             "allowMultipleConnections": false,
@@ -306,18 +327,18 @@
             "supportsVariables": false,
             "value": [
               {
+                "__typename": "DataValue",
                 "label": "Context",
-                "value": " ",
-                "__typename": "DataValue"
+                "value": " "
               }
-            ],
-            "__typename": "ModelInput"
+            ]
           },
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": false,
             "allowMultipleConnections": false,
@@ -335,18 +356,18 @@
             "supportsVariables": false,
             "value": [
               {
+                "__typename": "DataValue",
                 "label": "English",
-                "value": "en",
-                "__typename": "DataValue"
+                "value": "en"
               }
-            ],
-            "__typename": "ModelInput"
+            ]
           },
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": false,
             "allowMultipleConnections": false,
@@ -362,14 +383,14 @@
             "required": false,
             "supportedFileTypes": [],
             "supportsVariables": false,
-            "value": [],
-            "__typename": "ModelInput"
+            "value": null
           },
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": false,
             "allowMultipleConnections": false,
@@ -380,8 +401,8 @@
             "dataType": "text",
             "defaultValue": [
               {
-                "value": "0",
-                "__typename": "DataValue"
+                "__typename": "DataValue",
+                "value": "0"
               }
             ],
             "example": null,
@@ -390,14 +411,14 @@
             "required": false,
             "supportedFileTypes": [],
             "supportsVariables": false,
-            "value": null,
-            "__typename": "ModelInput"
+            "value": null
           },
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": false,
             "allowMultipleConnections": false,
@@ -408,8 +429,8 @@
             "dataType": "text",
             "defaultValue": [
               {
-                "value": "200",
-                "__typename": "DataValue"
+                "__typename": "DataValue",
+                "value": "200"
               }
             ],
             "example": null,
@@ -418,14 +439,14 @@
             "required": false,
             "supportedFileTypes": [],
             "supportsVariables": false,
-            "value": null,
-            "__typename": "ModelInput"
+            "value": null
           },
           {
+            "__typename": "ModelInput",
             "allowedRange": {
+              "__typename": "AllowedRange",
               "from": null,
-              "to": null,
-              "__typename": "AllowedRange"
+              "to": null
             },
             "allowMulti": false,
             "allowMultipleConnections": false,
@@ -436,8 +457,8 @@
             "dataType": "text",
             "defaultValue": [
               {
-                "value": "",
-                "__typename": "DataValue"
+                "__typename": "DataValue",
+                "value": ""
               }
             ],
             "example": null,
@@ -448,41 +469,40 @@
             "supportsVariables": false,
             "value": [
               {
+                "__typename": "DataValue",
                 "label": "default",
-                "value": " ",
-                "__typename": "DataValue"
+                "value": " "
               }
-            ],
-            "__typename": "ModelInput"
+            ]
           }
         ],
         "isExecutable": true,
         "isFineTunable": false,
         "isTransferable": false,
         "latestPrice": {
-          "unitPrice": 0.000002,
-          "unitPriceRangeFrom": 0,
-          "unitPriceRangeTo": 0,
+          "__typename": "ModelPrice",
+          "unitPrice": 0.000015,
+          "unitPriceRangeFrom": 0.000005,
+          "unitPriceRangeTo": 0.000015,
           "unitType": "TOKEN",
-          "unitTypeScale": null,
-          "__typename": "ModelPrice"
+          "unitTypeScale": null
         },
-        "name": "Chat GPT 3.5",
+        "name": "GPT-4o",
         "out": "",
         "outDataTypes": [
           "text"
         ],
         "output": [
           {
+            "__typename": "ModelOutput",
             "code": "data",
             "dataSubType": null,
             "dataType": "text",
             "example": null,
             "pipelineConfig": {
-              "allowedNodeTypes": [],
-              "__typename": "ModelOutputPipelineConfig"
-            },
-            "__typename": "ModelOutput"
+              "__typename": "ModelOutputPipelineConfig",
+              "allowedNodeTypes": []
+            }
           }
         ],
         "privacy": "Public",
@@ -490,21 +510,20 @@
         "subscribed": false,
         "subscription": null,
         "teamData": {
+          "__typename": "ShortTeam",
           "id": 1777,
-          "name": "OpenAI",
-          "__typename": "ShortTeam"
+          "name": "OpenAI"
         },
-        "totalSubscribed": 30,
+        "totalSubscribed": 2,
         "type": "REGULAR",
         "versioning": {
-          "key": "0434f234-cb3e-4b9e-9465-6bf992839576",
+          "__typename": "ResourceInfo",
+          "key": "00f0536c-3c2f-4baf-a1db-833fde75f343",
           "tag": "initial",
           "tags": [
             "initial"
-          ],
-          "__typename": "ResourceInfo"
-        },
-        "__typename": "Model"
+          ]
+        }
       }
     },
     {
