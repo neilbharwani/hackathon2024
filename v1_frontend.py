@@ -25,8 +25,10 @@ world_language = ""
 ap_courses = ""
 honors_courses = ""
 sat_score = ""
-volunteer_hours = " Hours"
+volunteer_hours = ""
+volunteer_hours = volunteer_hours + " Hours"
 extracurricular_activities = ", , ,"
+country = "US"
 
 query = f"""
 What colleges can I apply to with these grades:
@@ -41,7 +43,19 @@ SAT Score: {sat_score}
 Volunteer Hours: {volunteer_hours}
 Extracurricular Activities: {extracurricular_activities}
 
-Please only give the college names and not any other context.
+Use the {country} college system.
+
+At the end make a paragraph, provide some future steps to help me get into some better colleges.
+
+Use this final format with good markdowns:
+1. College 1
+[Information About College 1] (Advantages and Disadvatages)
+2. College 2
+[Information About College 2] (Advantages and Disadvatages)
+3. College 3
+[Information About College 3] (Advantages and Disadvatages)
+
+[Paragraph about how to get into better colleges using my grades.]
 """
 
 result = pipeline.run(query)
@@ -51,7 +65,5 @@ response = requests.get(output_url)
 content = response.text
 
 os.system("cls" if os.name == "nt" else "clear")
-
-content = "You should try to apply to: \n"+content
 
 print(content)
