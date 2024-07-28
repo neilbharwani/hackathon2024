@@ -1,1 +1,116 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="number"]:focus {
+            border-color: #777;
+            outline: none;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Information Form</h2>
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="gpa">GPA:</label>
+                <input type="number" step="0.01" id="gpa" name="gpa" placeholder="Enter your GPA">
+            </div>
+            <div class="form-group">
+                <label for="math_grade">Math Grade:</label>
+                <input type="text" id="math_grade" name="math_grade" placeholder="Enter your Math Grade">
+            </div>
+            <div class="form-group">
+                <label for="science_grade">Science Grade:</label>
+                <input type="text" id="science_grade" name="science_grade" placeholder="Enter your Science Grade">
+            </div>
+            <div class="form-group">
+                <label for="english_grade">English Grade:</label>
+                <input type="text" id="english_grade" name="english_grade" placeholder="Enter your English Grade">
+            </div>
+            <div class="form-group">
+                <label for="world_language">World Language:</label>
+                <input type="text" id="world_language" name="world_language" placeholder="Enter your World Language">
+            </div>
+            <div class="form-group">
+                <label for="ap_courses">AP Courses:</label>
+                <input type="text" id="ap_courses" name="ap_courses" placeholder="List your AP Courses">
+            </div>
+            <div class="form-group">
+                <label for="honors_courses">Honors Courses:</label>
+                <input type="text" id="honors_courses" name="honors_courses" placeholder="List your Honors Courses">
+            </div>
+            <div class="form-group">
+                <label for="sat_score">SAT Score:</label>
+                <input type="number" id="sat_score" name="sat_score" placeholder="Enter your SAT Score">
+            </div>
+            <div class="form-group">
+                <label for="volunteer_hours">Volunteer Hours:</label>
+                <input type="number" id="volunteer_hours" name="volunteer_hours" placeholder="Enter your Volunteer Hours">
+            </div>
+            <div class="form-group">
+                <label for="extracurricular_activities">Extracurricular Activities:</label>
+                <input type="text" id="extracurricular_activities" name="extracurricular_activities" placeholder="List your Extracurricular Activities">
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" placeholder="Enter your Country" value="US">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
