@@ -1,0 +1,245 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Information</title>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: #f7f7f8;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                color: #202123;
+                overflow: auto;
+            }
+
+            .container {
+                background: #fff;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                max-width: 80%;
+                max-height: 80%;
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                overflow-y: auto;
+                position: relative;
+                border: 1px solid #e0e0e0;
+            }
+
+            h1 {
+                font-size: 24px;
+                color: #202123;
+                margin-bottom: 24px;
+                text-transform: capitalize;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                background-color: #f7f7f8;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            th, td {
+                padding: 16px;
+                border-bottom: 1px solid #e0e0e0;
+                text-align: left;
+                color: #202123;
+            }
+
+            th {
+                background-color: #e0e0e0;
+                font-weight: 500;
+            }
+
+            tr {
+                transition: background-color 0.2s ease-in-out;
+            }
+
+            tr:hover {
+                background-color: #e9ecef;
+            }
+
+            .response-table {
+                margin-top: 20px;
+                text-align: left;
+            }
+
+            .response-table td {
+                background-color: #fff;
+                color: #4a4a4a;
+                border: none;
+                text-align: left;
+            }
+
+            .response-header {
+                font-weight: 600;
+                font-size: 18px;
+                color: #202123;
+                margin-bottom: 10px;
+            }
+
+            .inpt {
+                width: 100%;
+                padding: 12px;
+                font-size: 18px;
+                border: 2px solid #ccc;
+                border-radius: 6px;
+                box-sizing: border-box;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .response-content {
+                padding: 15px;
+                background-color: #f1f3f5;
+                border-radius: 8px;
+                color: #3c4043;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 5px 20px;
+                font-size: 16px;
+                font-weight: 500;
+                color: #fff;
+                background-color: #4a90e2;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s ease-in-out;
+                margin-top: 0px; /* Reduced margin to bring the button closer */
+                margin-bottom: 15px; /* Added margin to separate from the second text area */
+            }
+
+            .btn:hover {
+                background-color: #357ab8;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function setInnerHTML(elm, html) {
+                elm.innerHTML = html;
+                
+                Array.from(elm.querySelectorAll("script"))
+                    .forEach( oldScriptEl => {
+                    const newScriptEl = document.createElement("script");
+                    
+                    Array.from(oldScriptEl.attributes).forEach( attr => {
+                        newScriptEl.setAttribute(attr.name, attr.value) 
+                    });
+                    
+                    const scriptText = document.createTextNode(oldScriptEl.innerHTML);
+                    newScriptEl.appendChild(scriptText);
+                    
+                    oldScriptEl.parentNode.replaceChild(newScriptEl, oldScriptEl);
+                });
+            }
+            async function submitChat() {
+                event.preventDefault();
+                if (document.getElementById('txt2').textContent == "") {
+                    alert("I did not get your question.")
+                    return
+                }
+                document.getElementById("form_submit").disabled = true;
+                document.getElementById('response2').hidden = false;
+                // Get form values
+                const formData = new FormData(document.getElementById('chatForm'));
+                //const textbox = document.querySelector('textarea[name="txt2"]').value;
+                const response = await fetch('http://127.0.0.1:5000/result2', {
+                method: 'POST',
+                mode: 'cors',
+                body: formData
+                });
+                const data = await response.text();
+                if (response.ok) {
+                    console.log();
+                    // document.body.innerText = eval(data);
+                    // setInnerHTML(document.body, data)
+                    document.getElementById('response2').innerHTML = data
+                }
+            }
+        </script>
+        <div class="container">
+            <h1>Student Information</h1>
+            <table>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>GPA</td>
+                    <td>{{ gpa }}</td>
+                </tr>
+                <tr>
+                    <td>Math Grade</td>
+                    <td>{{ math_grade }}</td>
+                </tr>
+                <tr>
+                    <td>Science Grade</td>
+                    <td>{{ science_grade }}</td>
+                </tr>
+                <tr>
+                    <td>English Grade</td>
+                    <td>{{ english_grade }}</td>
+                </tr>
+                <tr>
+                    <td>World Language Grade</td>
+                    <td>{{ world_language }}</td>
+                </tr>
+                <tr>
+                    <td>AP Courses</td>
+                    <td>{{ ap_courses }}</td>
+                </tr>
+                <tr>
+                    <td>Honors Courses</td>
+                    <td>{{ honors_courses }}</td>
+                </tr>
+                <tr>
+                    <td>SAT Score</td>
+                    <td>{{ sat_score }}</td>
+                </tr>
+                <tr>
+                    <td>Volunteer Hours</td>
+                    <td>{{ volunteer_hours }}</td>
+                </tr>
+                <tr>
+                    <td>Extracurricular Activities</td>
+                    <td>{{ extracurricular_activities }}</td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>{{ country }}</td>
+                </tr>
+            </table>
+            <br>
+            <div class="response-table">
+                <div class="response-header">Based on your academic performance, I suggest considering the following universities:</div>
+                <div class="response-content">{{ Resp }}</div>
+            </div>
+            <br>
+            <div class="response-table">
+                <div class="response-header">Do you have any more questions for me?</div>
+                <form id="chatForm" method="post" onsubmit="submitChat()">
+                    <textarea class="inpt" id="txt2" rows="5" placeholder="Enter your query here"></textarea>
+                    <input type="submit" id="form_submit" value="Submit">
+                </form>
+                <br>
+                <textarea class="inpt" id="response2" rows="20" readonly hidden>Allow me a moment to look into this and I'll get back to you...</textarea>
+            </div>
+        </div>
+
+    </body>
+    </html>

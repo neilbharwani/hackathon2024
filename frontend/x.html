@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+            overflow: auto;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+            max-height: 80%;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            overflow-y: auto;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid #fff;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #555;
+            line-height: 1.4;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .typing {
+            font-size: 18px;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            font-weight: 400;
+            border-right: 3px solid #4caf50;
+            box-sizing: border-box;
+            text-align: center;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            animation: typing 4s steps(500, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #4caf50;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: none;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #f3f4f6;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group select:focus {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+            outline: none;
+        }
+
+        .form-group select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #f3f4f6;
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.41 0.58L6 5.17L10.59 0.58L12 2L6 8L0 2L1.41 0.58Z' fill='%23666'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px 8px;
+        }
+
+        .form-group input[type="submit"] {
+            background: linear-gradient(45deg, #4caf50, #45a049);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group input[type="submit"]:hover {
+            background: linear-gradient(45deg, #45a049, #388e3c);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group input[type="submit"]:disabled {
+            background: #d3d3d3; /* Light grey background */
+            color: #a9a9a9; /* Darker grey text */
+            box-shadow: none; /* No shadow */
+            transform: none; /* No transformation */
+            cursor: not-allowed; /* Change cursor to indicate disabled */
+        }
+
+        .form-group input[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .image-container img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #000000;
+            border-radius: 6px;
+            border: 2px solid #fff;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group select {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+
+            .form-group input[type="submit"] {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            .typing {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="assets/titan.jpg">
+        </div>
+        <h1>Titan</h1>
+        <div class="typing">Hello, I am Titan, your college counselor. I'm here to assist you with your college admission process.</div>
+        <h2>Student Information Form</h2>
+        <form id="studentForm" method="post" action="">
+            <div class="form-group">
+                <label for="gpa">GPA:</label>
+                <input type="number" step="0.01" id="gpa" name="gpa" placeholder="Enter your GPA" required>
+            </div>
+            <div class="form-group">
+                <label for="math_grade">Math Grade:</label>
+                <input type="text" id="math_grade" name="math_grade" placeholder="Enter your Math Grade" required>
+            </div>
+            <div class="form-group">
+                <label for="science_grade">Science Grade:</label>
+                <input type="text" id="science_grade" name="science_grade" placeholder="Enter your Science Grade" required>
+            </div>
+            <div class="form-group">
+                <label for="english_grade">English Grade:</label>
+                <input type="text" id="english_grade" name="english_grade" placeholder="Enter your English Grade" required>
+            </div>
+            <div class="form-group">
+                <label for="world_language">World Language Grade:</label>
+                <input type="text" id="world_language" name="world_language" placeholder="Enter your World Language Grade" required>
+            </div>
+            <div class="form-group">
+                <label for="ap_courses">AP Courses Count:</label>
+                <input type="text" id="ap_courses" name="ap_courses" placeholder="List the number of AP Courses" required>
+            </div>
+            <div class="form-group">
+                <label for="honors_courses">Honors Courses Count:</label>
+                <input type="text" id="honors_courses" name="honors_courses" placeholder="List the number of Honors Courses" required>
+            </div>
+            <div class="form-group">
+                <label for="sat_score">SAT Score:</label>
+                <input type="number" id="sat_score" name="sat_score" placeholder="Enter your SAT Score" required>
+            </div>
+            <div class="form-group">
+                <label for="volunteer_hours">Volunteer Hours:</label>
+                <input type="number" id="volunteer_hours" name="volunteer_hours" placeholder="Enter your Volunteer Hours" required>
+            </div>
+            <div class="form-group">
+                <label for="extracurricular_activities">Extracurricular Activities Count:</label>
+                <input type="text" id="extracurricular_activities" name="extracurricular_activities"
+                    placeholder="Count of Extracurricular Activities" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="US">🇺🇸 | United States</option>
+                    <option value="IN">🇮🇳 | India</option>
+                </select>
+            </div>            
+            <div class="form-group">
+                <input type="submit" id="form_submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for form validation and AJAX submission
+        document.getElementById('studentForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            // Get form values
+            const formData = new FormData(this);
+    
+            // Grade pattern (A-F or 0-100)
+            const gradePattern = /^[A-Fa-f]$|^(100|[1-9]?[0-9])$/;
+    
+            // Validation checks
+            if (isNaN(formData.get('gpa')) || formData.get('gpa') < 0.0 || formData.get('gpa') > 4.0) {
+                alert('Please enter a valid GPA between 0.0 and 4.0');
+                return;
+            }
+    
+            if (!gradePattern.test(formData.get('math_grade')) || !gradePattern.test(formData.get('science_grade')) || !gradePattern.test(formData.get('english_grade'))) {
+                alert('Please enter valid grades (A-F or 0-100) for Math, Science, and English');
+                return;
+            }
+    
+            if (isNaN(formData.get('sat_score')) || formData.get('sat_score') < 400 || formData.get('sat_score') > 1600) {
+                alert('Please enter a valid SAT score between 400 and 1600');
+                return;
+            }
+    
+            if (isNaN(formData.get('volunteer_hours')) || formData.get('volunteer_hours') < 0) {
+                alert('Please enter a valid number of volunteer hours');
+                return;
+            }
+            function setInnerHTML(elm, html) {
+            elm.innerHTML = html;
+            
+            Array.from(elm.querySelectorAll("script"))
+                .forEach( oldScriptEl => {
+                const newScriptEl = document.createElement("script");
+                
+                Array.from(oldScriptEl.attributes).forEach( attr => {
+                    newScriptEl.setAttribute(attr.name, attr.value) 
+                });
+                
+                const scriptText = document.createTextNode(oldScriptEl.innerHTML);
+                newScriptEl.appendChild(scriptText);
+                
+                oldScriptEl.parentNode.replaceChild(newScriptEl, oldScriptEl);
+            });
+            }
+            document.getElementById("form_submit").value = "I am working on your request..."
+            document.getElementById("form_submit").disabled = true;
+            const response = await fetch('http://127.0.0.1:5000/result', {
+            method: 'POST',
+            mode: 'cors',
+            body: formData
+            });
+            const data = await response.text();
+            if (response.ok) {
+                console.log(data);
+                // document.body.innerText = eval(data);
+                setInnerHTML(document.body, data)
+            }
+        })
+</script>
+</body>
+
+</html>
