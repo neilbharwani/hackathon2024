@@ -15,7 +15,7 @@ except ImportError as e:
     from aixplain.factories import PipelineFactory
     os.system("cls" if os.name == "nt" else "clear")
 
-pipeline = PipelineFactory.get("668f8415223429092ea2082f")
+pipeline = PipelineFactory.get("api key")
 
 gpa = ""
 math_grade = ""
