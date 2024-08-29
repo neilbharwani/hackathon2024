@@ -8,10 +8,10 @@ import html
 import re
 pipeline = PipelineFactory.get("668f8415223429092ea2082f")
 
-os.environ["TEAM_API_KEY"] = "358bbb41895ec8afe6917f5ad7c50151ba8c9aa937c0b6466a9cc9e6fb0bc7d1"
+os.environ["TEAM_API_KEY"] = "api key"
 
 app = Flask(__name__)
-app.secret_key = '0ihj4i5jb0i34nb0i34ngv0i4n'
+app.secret_key = 'secret '
 
 ai_context = {}
 
